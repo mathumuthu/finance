@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account | STACKLY</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+background:linear-gradient(135deg,#9ACD32,#14532d);
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.register-card{
+width:100%;
+max-width:500px;
+background:#fff;
+border-radius:20px;
+padding:35px;
+box-shadow:0 20px 50px rgba(0,0,0,.2);
+position:relative;
+}
+
+.btn-back{
+position:absolute;
+left:20px;
+top:20px;
+border:none;
+background:#f3f4f6;
+width:40px;
+height:40px;
+border-radius:50%;
+cursor:pointer;
+}
+
+.logo-wrap{
+text-align:center;
+margin-bottom:20px;
+}
+
+.logo-link{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+text-decoration:none;
+}
+
+.logo-link img{
+width:60px;
+height:60px;
+object-fit:contain;
+}
+
+.logo-text{
+font-size:30px;
+font-weight:800;
+color:#9ACD32;
+}
+
+.icon-box{
+width:80px;
+height:80px;
+margin:auto;
+border-radius:50%;
+background:#dcfce7;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+color:#9ACD32;
+margin-bottom:15px;
+}
+
+h3{
+text-align:center;
+font-weight:700;
+}
+
+.sub{
+text-align:center;
+color:#6b7280;
+margin-bottom:25px;
+}
+
+.form-control{
+height:52px;
+border-radius:12px;
+}
+
+.btn-register{
+height:55px;
+border:none;
+width:100%;
+border-radius:12px;
+background:#9ACD32;
+color:#fff;
+font-weight:600;
+}
+
+.btn-register:hover{
+background:#9ACD32;
+}
+
+.bottom-link{
+text-align:center;
+margin-top:20px;
+}
+
+.bottom-link a{
+text-decoration:none;
+font-weight:600;
+color:#9ACD32;
+}
+
+.error{
+color:red;
+font-size:13px;
+margin-top:4px;
+}
+
+.password-box{
+position:relative;
+}
+
+.password-toggle{
+position:absolute;
+right:15px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+}
+
+@media(max-width:576px){
+
+.register-card{
+padding:25px;
+}
+
+.logo-text{
+font-size:24px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="register-card">
+
+<button class="btn-back" onclick="history.back()">
+<i class="bi bi-arrow-left"></i>
+</button>
+
+<div class="logo-wrap">
+<a href="index.html" class="logo-link">
+<img src="logo.webp" alt="Logo">
+<span class="logo-text">STACKLY</span>
+</a>
+</div>
+
+<div class="icon-box">
+<i class="bi bi-person-plus-fill"></i>
+</div>
+
+<h3>Create Account</h3>
+<p class="sub">Create your Stackly account</p>
+
+<form id="registerForm">
+
+<div class="mb-3">
+<label class="form-label">Full Name</label>
+<input type="text" class="form-control" id="name" placeholder="Enter Full Name">
+<div id="nameError" class="error"></div>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Email Address</label>
+<input type="email" class="form-control" id="email" placeholder="you@example.com">
+<div id="emailError" class="error"></div>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Phone Number</label>
+<input type="text" class="form-control" id="phone" maxlength="10" placeholder="9876543210">
+<div id="phoneError" class="error"></div>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Password</label>
+<div class="password-box">
+<input type="password" class="form-control" id="password" placeholder="Create Password">
+<span class="password-toggle" onclick="togglePassword('password')">
+<i class="bi bi-eye"></i>
+</span>
+</div>
+<div id="passwordError" class="error"></div>
+</div>
+
+<div class="mb-4">
+<label class="form-label">Confirm Password</label>
+<div class="password-box">
+<input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+<span class="password-toggle" onclick="togglePassword('confirmPassword')">
+<i class="bi bi-eye"></i>
+</span>
+</div>
+<div id="confirmError" class="error"></div>
+</div>
+
+<button type="submit" class="btn-register">
+Create Account <i class="bi bi-person-check-fill"></i>
+</button>
+
+</form>
+
+<div class="bottom-link">
+Already have an account?
+<a href="login.html">Sign In</a>
+</div>
+
+</div>
+
+<script>
+
+function togglePassword(id){
+const field=document.getElementById(id);
+field.type=field.type==="password"?"text":"password";
+}
+
+document.getElementById("registerForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let valid=true;
+
+const name=document.getElementById("name").value.trim();
+const email=document.getElementById("email").value.trim();
+const phone=document.getElementById("phone").value.trim();
+const password=document.getElementById("password").value;
+const confirmPassword=document.getElementById("confirmPassword").value;
+
+document.querySelectorAll(".error").forEach(el=>el.innerHTML="");
+
+if(!/^[A-Za-z ]+$/.test(name)){
+document.getElementById("nameError").innerHTML="Name must contain only letters";
+valid=false;
+}
+
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+document.getElementById("emailError").innerHTML="Enter valid email";
+valid=false;
+}
+
+if(!/^[0-9]{10}$/.test(phone)){
+document.getElementById("phoneError").innerHTML="Phone must be 10 digits";
+valid=false;
+}
+
+if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(password)){
+document.getElementById("passwordError").innerHTML=
+"Min 8 chars, uppercase, lowercase, number & special character required";
+valid=false;
+}
+
+if(password!==confirmPassword){
+document.getElementById("confirmError").innerHTML=
+"Passwords do not match";
+valid=false;
+}
+
+if(valid){
+alert("Account Created Successfully!");
+window.location.href="login.html";
+}
+
+});
+
+</script>
+
+</body>
+</html>

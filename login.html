@@ -186,6 +186,187 @@
 }
 
 
+/* =========================================
+   LOGIN MOBILE SCREEN FIX
+   ========================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Mobile only */
+@media (max-width: 576px) {
+
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .login-wrap {
+        width: 100%;
+        min-height: 100vh;
+        min-height: 100dvh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 15px 12px !important;
+        margin: 0 !important;
+
+        box-sizing: border-box;
+    }
+
+    .login-wrap > .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin: 0 !important;
+    }
+
+    .login-wrap .d-flex {
+        width: 100%;
+        margin: 0 !important;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 420px;
+
+        margin: 0 auto !important;
+
+        box-sizing: border-box;
+    }
+
+    /* Logo */
+    .logo-img-row {
+        width: 45px;
+        height: 45px;
+    }
+
+    .logo-text-row {
+        font-size: 24px;
+    }
+
+    .logo-link-row {
+        gap: 8px;
+    }
+
+    /* Heading */
+    .login-card h3 {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
+    .login-card .sub {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+
+    /* Form spacing */
+    .login-card .mb-3 {
+        margin-bottom: 12px !important;
+    }
+
+    .login-card .mb-4 {
+        margin-bottom: 15px !important;
+    }
+
+    /* Inputs */
+    .login-card .form-control {
+        min-height: 44px;
+    }
+
+    /* Role buttons */
+    .role-select {
+        margin-bottom: 15px;
+    }
+
+    /* Sign in */
+    .login-card .btn-green {
+        min-height: 44px;
+    }
+
+    /* Bottom links */
+    .login-alt {
+        font-size: 13px;
+        margin-top: 12px;
+    }
+
+}
+/* Password eye button - mobile fix */
+.input-icon {
+    position: relative;
+    width: 100%;
+}
+
+.input-icon .form-control {
+    width: 100%;
+    padding-right: 48px !important;
+    box-sizing: border-box;
+}
+
+.input-icon .pw-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    margin: 0;
+
+    border: 0;
+    background: transparent;
+
+    z-index: 5;
+}
+
+.input-icon .pw-toggle i {
+    font-size: 17px;
+    line-height: 1;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .input-icon .form-control {
+        padding-right: 45px !important;
+    }
+
+    .input-icon .pw-toggle {
+        right: 8px;
+    }
+}input[type="password"]::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+/* Login page green background */
+body {
+    background: linear-gradient(135deg,#9ACD32,#14532d) !important;
+}
+
+.login-wrap {
+    background: transparent !important;
+}
 
 </style>
 

@@ -1,38 +1,540 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 — Page Not Found | finance.</title>
-  <meta name="description" content="The page you requested could not be found.">
+
+  <title>404 | STACKLY</title>
+
+  <meta
+    name="description"
+    content="STACKLY page not found."
+  >
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Common CSS -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+
+    /* ==========================================
+       STACKLY 404 PAGE ONLY
+       ========================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: #f7faf8;
+    }
+
+    .stackly-404 {
+      min-height: 100vh;
+      height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+      overflow: hidden;
+
+      padding: 30px 20px;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(154, 205, 50, 0.14),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(20, 83, 45, 0.10),
+          transparent 30%
+        ),
+        #f7faf8;
+    }
+
+    /* Decorative circles */
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .shape-one {
+      width: 240px;
+      height: 240px;
+
+      top: -120px;
+      left: -80px;
+
+      background: rgba(154, 205, 50, 0.12);
+    }
+
+    .shape-two {
+      width: 300px;
+      height: 300px;
+
+      right: -150px;
+      bottom: -160px;
+
+      background: rgba(20, 83, 45, 0.08);
+    }
+
+    .shape-three {
+      width: 80px;
+      height: 80px;
+
+      top: 18%;
+      right: 12%;
+
+      border: 12px solid rgba(154, 205, 50, 0.12);
+    }
+
+    /* Main content */
+
+    .error-content {
+      width: 100%;
+      max-width: 700px;
+
+      text-align: center;
+
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Logo */
+
+    .error-logo {
+      margin-bottom: 18px;
+    }
+
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      text-decoration: none;
+    }
+
+    .logo-img {
+      width: 48px;
+      height: 48px;
+
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-size: 27px;
+      font-weight: 800;
+
+      color: #14532d;
+
+      letter-spacing: 1px;
+    }
+
+    /* 404 */
+
+    .error-number {
+      font-size: clamp(110px, 20vw, 190px);
+
+      line-height: 0.85;
+
+      font-weight: 800;
+
+      letter-spacing: -8px;
+
+      color: #14532d;
+
+      margin: 0;
+    }
+
+    .error-number span {
+      color: #9acd32;
+    }
+
+    /* Icon */
+
+    .error-icon {
+      width: 65px;
+      height: 65px;
+
+      margin: 18px auto 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: rgba(154, 205, 50, 0.15);
+
+      color: #7ba428;
+
+      font-size: 30px;
+
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-7px);
+      }
+
+    }
+
+    /* Heading */
+
+    .error-content h1 {
+      font-size: clamp(25px, 4vw, 36px);
+
+      font-weight: 700;
+
+      color: #14532d;
+
+      margin: 0 0 10px;
+    }
+
+    /* Description */
+
+    .error-content p {
+      max-width: 500px;
+
+      margin: 0 auto 25px;
+
+      color: #64748b;
+
+      font-size: 14px;
+
+      line-height: 1.7;
+    }
+
+    /* Buttons */
+
+    .error-actions {
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+    }
+
+    .error-btn {
+      min-width: 135px;
+
+      padding: 11px 20px;
+
+      border-radius: 7px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+      text-decoration: none;
+
+      transition: all 0.3s ease;
+
+      cursor: pointer;
+    }
+
+    /* Home */
+
+    .home-btn {
+      background: #9acd32;
+
+      color: #10161a;
+
+      border: 1px solid #9acd32;
+    }
+
+    .home-btn:hover {
+      background: #7ba428;
+
+      border-color: #7ba428;
+
+      color: #ffffff;
+
+      transform: translateY(-2px);
+    }
+
+    /* Back */
+
+    .back-btn {
+      background: transparent;
+
+      color: #14532d;
+
+      border: 1px solid #14532d;
+    }
+
+    .back-btn:hover {
+      background: #14532d;
+
+      color: #ffffff;
+
+      transform: translateY(-2px);
+    }
+
+    /* Bottom text */
+
+    .error-footer {
+      margin-top: 22px;
+
+      font-size: 11px;
+
+      color: #94a3b8;
+    }
+
+    .error-footer span {
+      color: #9acd32;
+      font-weight: 600;
+    }
+
+
+    /* ==========================================
+       MOBILE RESPONSIVE
+       ========================================== */
+
+    @media (max-width: 767.98px) {
+
+      .stackly-404 {
+        min-height: 100svh;
+        height: 100svh;
+
+        padding: 20px 15px;
+      }
+
+      .logo-img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .logo-text {
+        font-size: 23px;
+      }
+
+      .error-number {
+        font-size: clamp(90px, 27vw, 130px);
+
+        letter-spacing: -5px;
+      }
+
+      .error-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 25px;
+
+        margin-top: 15px;
+      }
+
+      .error-content h1 {
+        font-size: 23px;
+      }
+
+      .error-content p {
+        font-size: 13px;
+
+        max-width: 340px;
+
+        margin-bottom: 20px;
+      }
+
+      .error-btn {
+        min-width: 120px;
+
+        padding: 10px 15px;
+
+        font-size: 13px;
+      }
+
+      .error-footer {
+        margin-top: 15px;
+      }
+
+      .shape-three {
+        display: none;
+      }
+
+    }
+
+
+    /* Small mobile */
+
+    @media (max-width: 380px) {
+
+      .error-number {
+        font-size: 82px;
+      }
+
+      .logo-text {
+        font-size: 21px;
+      }
+
+      .error-content h1 {
+        font-size: 20px;
+      }
+
+      .error-content p {
+        font-size: 12px;
+      }
+
+      .error-btn {
+        min-width: 110px;
+        padding: 9px 12px;
+      }
+
+    }
+
+  </style>
 </head>
+
 <body>
 
-<section class="error-wrap">
-  <div class="container">
-    <div class="error-illus reveal"><i class="bi bi-compass"></i></div>
-    <div class="error-code reveal d1">4<span>0</span>4</div>
-    <h2 class="reveal d2">Oops! Page Not Found</h2>
-    <p class="reveal d2">The page you are looking for was moved, removed, renamed or might never have existed. Let's get you back on track.</p>
-    <div class="reveal d3">
-    <a class="btn-green" href="index.html">
-        <i class="bi bi-house-door"></i> Go Home
-    </a>
+  <section class="stackly-404">
 
-    <button class="btn-outline-light ms-2" onclick="history.back()">
-        <i class="bi bi-arrow-left"></i> Go Back
-    </button>
-</div>
-</section>
+    <!-- Decorative Shapes -->
+    <div class="shape shape-one"></div>
+    <div class="shape shape-two"></div>
+    <div class="shape shape-three"></div>
 
-<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/main.js"></script>
+
+    <div class="error-content">
+
+      <!-- Logo -->
+      <div class="error-logo">
+
+        <a href="index.html" class="logo-link">
+
+          <img
+            src="logo.webp"
+            alt="STACKLY Logo"
+            class="logo-img"
+          >
+
+          <span class="logo-text">
+            STACKLY
+          </span>
+
+        </a>
+
+      </div>
+
+
+      <!-- 404 -->
+      <div class="error-number">
+        4<span>0</span>4
+      </div>
+
+
+      <!-- Icon -->
+      <div class="error-icon">
+        <i class="bi bi-compass"></i>
+      </div>
+
+
+      <!-- Heading -->
+      <h1>
+        Oops! Page Not Found
+      </h1>
+
+
+      <!-- Description -->
+      <p>
+        The page you're looking for doesn't exist or may have
+        been moved. Let's get you back to the STACKLY home page.
+      </p>
+
+
+      <!-- Buttons -->
+      <div class="error-actions">
+
+        <a
+          href="index.html"
+          class="error-btn home-btn"
+        >
+          <i class="bi bi-house-door-fill"></i>
+          Go Home
+        </a>
+
+
+        <button
+          type="button"
+          class="error-btn back-btn"
+          onclick="history.back()"
+        >
+          <i class="bi bi-arrow-left"></i>
+          Go Back
+        </button>
+
+      </div>
+
+
+      <!-- Footer -->
+      <div class="error-footer">
+        © 2026 <span>STACKLY</span> · Finance & Accounting Solutions
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
 </body>
 </html>
+
